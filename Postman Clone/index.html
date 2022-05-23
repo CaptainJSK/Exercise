@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>PostMaster</title>
+  <link rel="stylesheet" href="prism.css">
+</head>
+
+<body style="background-color: black; font-size: 20px">
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand mx-3" href="#" style="color: limegreen"><b>PostMaster</b></a>
+      <div class="mx-2" id="timeDiv" style="color: limegreen">
+        <p id="h" class="d-inline"></p>
+        <p id="m" class="d-inline"></p>
+      </div>
+    </div>
+  </nav>
+  <div class="container my-4" style="color: limegreen">
+    <h1>Welcome to PostMaster</h1>
+
+    <div class="container">
+      <div class="mb-3 row mt-5">
+        <label class="col-sm-2 col-form-label">URL</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="url" placeholder="www.example.com/api" style="background-color: black; border-color: limegreen; color: limegreen">
+        </div>
+      </div>
+      <div class="row mt-3">
+        <label class="col-sm-2 col-form-label">Request Type</label>
+        <div class="col-sm-10">
+          <div class="form-check mt-1">
+            <input class="form-check-input" type="radio" name="requestType" id="GET" value="GET" style="border: limegreen 2px solid; background-color: black">
+            <label class="form-check-label">
+              GET
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="requestType" id="POST" value="POST" style="border: limegreen 2px solid; background-color: black">
+            <label class="form-check-label">
+              POST
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3" id="contentTypeDiv">
+        <label class="col-sm-2 col-form-label">Content Type</label>
+        <div class="col-sm-10">
+          <div class="form-check mt-1">
+            <input class="form-check-input" type="radio" name="contentType" id="optJSON" value="JSON" style="border: limegreen 2px solid; background-color: black" disabled>
+            <label class="form-check-label" aria-disabled="true">
+              JSON
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="contentType" id="optCusParam" value="cusParam" style="border: limegreen 2px solid; background-color: black">
+            <label class="form-check-label">
+              Custom Parameters
+            </label>
+          </div>
+        </div>
+      </div>
+      <div id="reqTextarea">
+        <div class="row mt-3" id="jsonReqDiv">
+          <label class="col-sm-2 col-form-label" aria-disabled="true">JSON Request</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" id="jsonReq" cols="60" rows="3" style="background-color: black; border: limegreen solid; color: limegreen" placeholder="NOTE: Current disabled cuz of bugs.
+            You May use Costum Paramaters option" disabled></textarea>
+          </div>
+        </div>
+        <div class="row mt-3 d-none" id="cusParamDiv">
+          <label class="col-sm-2 col-form-label">Parameter</label>
+          <div class="col-sm-10" id="keyValueDiv">
+            <div class="input-group">
+              <input id="key1" class="rounded form-control me-1" type="text" style="background-color: black; border: limegreen solid; color: limegreen" placeholder="key">
+              <input id="value1" class="rounded form-control me-1" type="text" style="background-color: black; border: limegreen solid; color: limegreen" placeholder="value">
+              <button id="addParamBtn" class="btn" type="button" style="background-color: black; border: limegreen solid; color: limegreen">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-3">
+        <button id="submitBtn" class="btn float-end" style="background-color: black; border: limegreen solid; color: limegreen">Submit</button>
+      </div>
+      <div class="row" style="margin-top: 150px">
+        <label class="col-sm-2 col-form-label">Response</label>
+        <div class="col-sm-10">
+          <pre style="border: limegreen solid; background-color: black; max-height: 500px"><p style="color: #6C757D; display: inline;" id="pElem">Server Response</p><code class="language-javascript line-numbers tool-bar" id="responsePrism"></code></pre>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+    <script src="prism.js"></script>
+</body>
+
+</html>
